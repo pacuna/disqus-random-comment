@@ -1,0 +1,35 @@
+%form{action: "/", method: "GET"}
+  %label
+    Forum ID(aka short name): 
+  %input{name: "forum"}
+  %label
+    URL: 
+  %input{name: "url"}
+  %input{type: "submit", value: "Get random comment"}
+
+-if @winner_post
+  %h2
+    Winner: 
+
+  %p
+    Name:
+    =@winner_post["author"]["name"]
+
+  %p
+    ProfileUrl:
+    =@winner_post["author"]["profileUrl"]
+
+  %p
+    Email:
+    =@winner_post["author"]["email"]
+  %p
+    Location:
+    =@winner_post["location"]
+
+  %p
+    Approximate location:
+    =@formatted_address
+
+  %p
+    Message:
+    =@winner_post["message"]
