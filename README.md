@@ -1,6 +1,6 @@
 # Random Disqus Comment
 
-This application gets a random comment from a disqus thread. It uses ruby for back-end requests, so you need to create a Disqus application (you also need this if your accessing private data (user emails, user locations, etc).
+This application gets a random comment from a disqus thread. It uses ruby for back-end requests, so you need to create a Disqus application (which is also needed if your accessing private data (user emails, user locations, etc).
 
 ##Requirements
 - Ruby
@@ -8,7 +8,7 @@ This application gets a random comment from a disqus thread. It uses ruby for ba
 
 ##Instructions:
 
-- Find the forum id of your disqus application
+- Find the forum id of your disqus application (AKA [shortname](https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-))
 - Create a .env file in the root of the project with the following vars:
 
 ```
