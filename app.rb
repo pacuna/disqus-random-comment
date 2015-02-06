@@ -6,8 +6,8 @@ class App < Sinatra::Base
 
 
   get '/' do
-    if params[:forum] && params[:url]
-      thread = Thread.new(params[:forum], params[:url])
+    if params[:url]
+      thread = Thread.new('archdailycom', params[:url])
 
       winner_index = rand(thread.posts_count)
       @winner_post = thread.posts[winner_index]
