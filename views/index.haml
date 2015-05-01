@@ -28,6 +28,8 @@
                   %th
                     Name
                   %th
+                    Created at
+                  %th
                     ProfileUrl
                   %th
                     Email
@@ -43,6 +45,8 @@
                   %td
                     =@winner_post["author"]["name"]
                   %td
+                    =@winner_post["createdAt"]
+                  %td
                     =@winner_post["author"]["profileUrl"]
                   %td
                     =@winner_post["author"]["email"]
@@ -51,4 +55,4 @@
                   %td
                     =@formatted_address
                   %td
-                    =@winner_post["message"]
+                    = h @winner_post["message"]

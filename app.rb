@@ -4,6 +4,11 @@ class App < Sinatra::Base
                       api_key: ENV['API_KEY'],
                       access_token: ENV['ACCESS_TOKEN']}
 
+  helpers do
+    def h(text)
+      Rack::Utils.escape_html(text)
+    end
+  end
 
   get '/' do
     if params[:url]
