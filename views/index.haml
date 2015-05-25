@@ -16,7 +16,7 @@
           a random comment from that thread.
         %form{action: "/", method: "GET"}
           %div.form-group
-            %input{name: "url", placeholder: "URL", type: 'url', class: 'form-control', required: true}
+            %input{name: "url", placeholder: "URL", class: 'form-control'}
           %button{type: "submit", class: 'btn btn-large btn-success'}
             Give it to me!
 
@@ -56,13 +56,3 @@
                     =@formatted_address
                   %td
                     = h @winner_post["message"]
-
-          %form{action: '/', method: 'POST'}
-            %input{type: 'hidden', name: 'link', value: params[:url] }
-            %input{type: 'hidden', name: 'name', value: @winner_post["author"]["name"] }
-            %input{type: 'hidden', name: 'created_at', value: @winner_post["createdAt"]  }
-            %input{type: 'hidden', name: 'email', value: @winner_post["author"]["email"] }
-            %input{type: 'hidden', name: 'location', value: @winner_post["location"]}
-            %input{type: 'hidden', name: 'message', value: h(@winner_post["message"])  }
-            %button.btn.btn-primary{type: 'submit'}
-              Save price 
