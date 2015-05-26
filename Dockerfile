@@ -14,6 +14,7 @@ RUN rm -f /etc/service/nginx/down
 # Copy the nginx template for configuration and preserve environment variables
 RUN rm /etc/nginx/sites-enabled/default
 ADD webapp.conf /etc/nginx/sites-enabled/webapp.conf
+ADD disqus-env.conf /etc/nginx/main.d/disqus-env.conf
 
 # create the projects folder and set the workdir
 RUN mkdir /home/app/webapp
