@@ -1,35 +1,58 @@
-%form{action: "/", method: "GET"}
-  %label
-    Forum ID(aka short name): 
-  %input{name: "forum"}
-  %label
-    URL: 
-  %input{name: "url"}
-  %input{type: "submit", value: "Get random comment"}
+!!!
+%html
+  %head
+    %title Disqus Random Comment
+    %link(rel="stylesheet" href="css/bootstrap.min.css")
+  %body
+    %div.container
+      %div.header
+        %h3.text-muted
+          ArchDaily
+      %div.jumbotron
+        %h1
+          Get a Random Comment!
+        %p.lead
+          Just paste the URL. You'll get
+          a random comment from that thread.
+        %form{action: "/", method: "GET"}
+          %div.form-group
+            %input{name: "url", placeholder: "URL", class: 'form-control'}
+          %button{type: "submit", class: 'btn btn-large btn-success'}
+            Give it to me!
 
--if @winner_post
-  %h2
-    Winner: 
-
-  %p
-    Name:
-    =@winner_post["author"]["name"]
-
-  %p
-    ProfileUrl:
-    =@winner_post["author"]["profileUrl"]
-
-  %p
-    Email:
-    =@winner_post["author"]["email"]
-  %p
-    Location:
-    =@winner_post["location"]
-
-  %p
-    Approximate location:
-    =@formatted_address
-
-  %p
-    Message:
-    =@winner_post["message"]
+        -if @winner_post
+          %div.table-responsive
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th
+                    Name
+                  %th
+                    Created at
+                  %th
+                    ProfileUrl
+                  %th
+                    Email
+                  %th
+                    Location
+                  %th
+                    Approximate Location
+                  %th
+                    Message
+                  %th
+              %tbody
+                %tr
+                  %td
+                    =@winner_post["author"]["name"]
+                  %td
+                    =@winner_post["createdAt"]
+                  %td
+                    =@winner_post["author"]["profileUrl"]
+                  %td
+                    =@winner_post["author"]["email"]
+                  %td
+                    =@winner_post["location"]
+                  %td
+                    =@formatted_address
+                  %td
+                    = h @winner_post["message"]
